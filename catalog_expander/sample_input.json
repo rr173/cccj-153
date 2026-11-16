@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "brand": "single",
+    "color": "single",
+    "size": "single",
+    "sales_pack": "set"
+  },
+  "nodes": [
+    {"node": ["ch1", "R1"], "declarations": {
+      "brand": {"mode": "single", "value": "Acme"},
+      "color": {"mode": "single", "value": "red"},
+      "sales_pack": {"base": "reset", "values": ["x", "y"]}
+    }},
+    {"node": ["ch1", "R2"], "declarations": {
+      "brand": {"mode": "single", "value": "Acme"},
+      "color": {"mode": "single", "value": "blue"},
+      "sales_pack": {"base": "reset", "values": ["y", "z"]}
+    }},
+    {"node": ["ch1", "L"], "declarations": {
+      "color": {"mode": "single", "value": "green"},
+      "sales_pack": {"base": "inherit", "remove": ["y"]}
+    }},
+    {"node": ["ch1", "D"], "declarations": {
+      "size": {"mode": "single", "value": "M"}
+    }}
+  ],
+  "edges": [
+    {"parent": ["ch1", "R1"], "child": ["ch1", "L"], "pack_factor": 2},
+    {"parent": ["ch1", "R2"], "child": ["ch1", "L"], "pack_factor": 2},
+    {"parent": ["ch1", "L"], "child": ["ch1", "D"], "pack_factor": 3}
+  ]
+}
